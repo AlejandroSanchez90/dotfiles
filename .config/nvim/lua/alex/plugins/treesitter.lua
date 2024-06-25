@@ -4,6 +4,7 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		"HiPhish/rainbow-delimiters.nvim",
 	},
 	config = function()
 		-- import nvim-treesitter plugin
@@ -17,6 +18,10 @@ return {
 		})
 		-- configure treesitter
 		treesitter.setup({ -- enable syntax highlighting
+			ignore_install = {},
+			sync_install = false,
+			auto_install = false,
+			modules = {},
 			highlight = {
 				enable = true,
 			},
