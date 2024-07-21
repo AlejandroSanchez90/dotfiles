@@ -1,0 +1,29 @@
+packages:
+  darwin:
+    brews:
+      - git
+      - vim
+      - gcc
+      - ripgrep
+      - zsh
+      - fzf
+      - tmux
+      - luarocks
+      - gcc-c++
+      - npm
+      - bun
+      - neovim
+  linux:
+    apt:
+      - git
+      - vim
+      - gcc
+      - ripgrep
+      - zsh
+      - fzf
+      - tmux
+      - luarocks
+      - gcc-c++
+      - npm
+      - bun
+      - neovim
