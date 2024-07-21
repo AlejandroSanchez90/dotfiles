@@ -22,7 +22,12 @@ return {
 		local luasnip = require("luasnip")
 
 		local lspkind = require("lspkind")
-		local tailwind_tools = require("tailwind-tools").setup({})
+
+		require("tailwind-tools").setup({
+			document_color = {
+				kind = "foreground",
+			},
+		})
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
 
