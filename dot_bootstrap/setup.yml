@@ -9,7 +9,6 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-
     - name: Install packages on Debian/Ubuntu
       ansible.builtin.apt:
         name:
@@ -30,6 +29,7 @@
       ansible.builtin.homebrew:
         name:
           - git
+          - gnu-sed
           - vim
           - gcc
           - ripgrep
@@ -46,3 +46,4 @@
       ansible.builtin.user:
         name: "{{ remote_regular_user }}"
         shell: /usr/bin/zsh
+
