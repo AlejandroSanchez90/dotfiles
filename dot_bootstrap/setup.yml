@@ -1,0 +1,48 @@
+- name: Machine setup
+  hosts: localhost
+  become: true
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: Get my user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+
+    - name: Install packages on Debian/Ubuntu
+      ansible.builtin.apt:
+        name:
+          - git
+          - vim
+          - gcc
+          - ripgrep
+          - zsh
+          - fzf
+          - tmux
+          - luarocks
+          - npm
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: Install packages on Darwin
+      ansible.builtin.homebrew:
+        name:
+          - git
+          - vim
+          - gcc
+          - ripgrep
+          - zsh
+          - fzf
+          - tmux
+          - luarocks
+          - npm
+          - bun
+        state: present
+      when: ansible_facts['os_family'] == 'Darwin'
+
+    - name: Change shell to zsh
+      ansible.builtin.user:
+        name: "{{ remote_regular_user }}"
+        shell: /usr/bin/zsh
