@@ -4,6 +4,10 @@ keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+
+keymap.set("n", "<C-j>", "<C-d>zz")
+keymap.set("n", "<C-k>", "<C-u>zz")
+
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
