@@ -1,6 +1,9 @@
 vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt
 
+-- Limit windows to 10 items
+opt.pumheight = 10
+
 opt.relativenumber = true
 opt.number = true
 opt.mouse = ""
