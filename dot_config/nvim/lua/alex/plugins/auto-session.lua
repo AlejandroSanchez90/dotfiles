@@ -9,14 +9,22 @@ return {
 		})
 
 		local keymap = vim.keymap
+		local function get_git_branch()
+			local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+			return vim.fn.trim(branch)
+		end
+
+		-- auto input branch name
 		function SaveSession()
-			local session_name = vim.fn.input("Enter session name: ")
+			local branch = get_git_branch()
+			local session_name = vim.fn.input({ prompt = "Session name: ", default = branch })
 			if session_name == "" then
 				print("Session name cannot be empty.")
 				return
 			end
+
 			vim.cmd("SessionSave " .. session_name)
-			print("Session " .. session_name .. "saved")
+			print("Session " .. session_name .. " saved")
 		end
 
 		keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
