@@ -4,11 +4,16 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		"norcalli/nvim-colorizer.lua",
 		-- "HiPhish/rainbow-delimiters.nvim",
 	},
 	config = function()
 		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.configs")
+
+		require("colorizer").setup({
+			"*",
+		})
 
 		require("nvim-ts-autotag").setup({
 			opts = {
