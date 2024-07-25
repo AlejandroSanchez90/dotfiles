@@ -10,14 +10,17 @@ return {
 
 		local keymap = vim.keymap
 		local function get_git_branch()
-			local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+			local branch = vim.fn.systemlist("git rev-parse --abbrev-ref HEAD 2>/dev/null")[1]
+			if vim.v.shell_error ~= 0 then
+				return ""
+			end
 			return vim.fn.trim(branch)
 		end
-
 		-- auto input branch name
 		function SaveSession()
 			local branch = get_git_branch()
 			local session_name = vim.fn.input({ prompt = "Session name: ", default = branch })
+
 			if session_name == "" then
 				print("Session name cannot be empty.")
 				return
