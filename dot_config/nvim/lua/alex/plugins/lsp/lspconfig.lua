@@ -9,7 +9,6 @@ return {
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-
 		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
@@ -76,7 +75,10 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-
+		-- Add border to the diagnostic popup window
+		vim.diagnostic.config({
+			float = { border = "rounded" },
+		})
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
@@ -84,6 +86,7 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+
 			["tsserver"] = function()
 				lspconfig["tsserver"].setup({
 					capabilities = capabilities,
@@ -124,11 +127,13 @@ return {
 					capabilities = capabilities,
 					settings = {
 						Lua = {
+
 							-- make the language server recognize "vim" global
 							diagnostics = {
 								globals = { "vim" },
 							},
 							completion = {
+
 								callSnippet = "Replace",
 							},
 						},

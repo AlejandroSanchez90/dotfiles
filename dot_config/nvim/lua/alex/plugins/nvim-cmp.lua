@@ -1,4 +1,5 @@
 return {
+
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
@@ -18,7 +19,6 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-
 		local luasnip = require("luasnip")
 
 		local lspkind = require("lspkind")
@@ -42,6 +42,10 @@ return {
 		end, { silent = true })
 
 		cmp.setup({
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
