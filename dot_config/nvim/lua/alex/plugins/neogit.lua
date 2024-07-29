@@ -13,6 +13,5 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 		keymap.set("n", "<leader>go", "<cmd>Neogit<cr>", { desc = "Open NeoGit" })
-		keymap.set("n", "<leader>gc", "<cmd>Neogit commit<cr>", { desc = "Open NeoGit commit popup" })
 	end,
 }
