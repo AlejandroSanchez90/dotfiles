@@ -2,6 +2,7 @@ return {
 	{
 
 		"CopilotC-Nvim/CopilotChat.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		branch = "canary",
 		dependencies = {
 			{ "github/copilot.vim" },
