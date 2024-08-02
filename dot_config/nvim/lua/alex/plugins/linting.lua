@@ -1,29 +1,41 @@
 return {
-	"mfussenegger/nvim-lint",
-	event = { "BufReadPre", "BufNewFile" },
+	"dense-analysis/ale",
 	config = function()
-		local lint = require("lint")
+		local g = vim.g
 
-		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			-- svelte = { "eslint_d" },
-			-- python = { "pylint" },
+		-- Enable linting for ESLint and TSLint
+		g.ale_linters = {
+			javascript = { "eslint" },
+			javascriptreact = { "eslint" },
+			typescript = { "eslint", "tslint" },
+			typescriptreact = { "eslint", "tslint" },
 		}
 
-		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+		-- Enable fixing of issues automatically (optional)
+		g.ale_fix_on_save = 1
 
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			group = lint_augroup,
-			callback = function()
-				lint.try_lint()
-			end,
-		})
+		-- Use specific linters for various file types
+		g.ale_javascript_eslint_executable = "eslint"
+		g.ale_javascript_eslint_options = "-c .eslintrc.js"
 
-		vim.keymap.set("n", "<leader>l", function()
-			lint.try_lint()
-		end, { desc = "Trigger linting for current file" })
+		g.ale_typescript_eslint_executable = "eslint"
+		g.ale_typescript_eslint_options = "-c .eslintrc.js"
+
+		g.ale_typescript_tslint_executable = "tslint"
+		g.ale_typescript_tslint_options = "-c tslint.json"
+
+		-- Optionally, enable auto-fix for eslint
+		g.ale_fixers = {
+			javascript = { "eslint" },
+			javascriptreact = { "eslint" },
+			typescript = { "eslint" },
+			typescriptreact = { "eslint" },
+		}
+
+		-- Enable linting on text changes
+		g.ale_lint_on_text_changed = "always"
+
+		-- Use quickfix list instead of location list
+		g.ale_set_quickfix = 1
 	end,
 }
