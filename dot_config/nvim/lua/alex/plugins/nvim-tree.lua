@@ -57,5 +57,7 @@ return {
 		) -- toggle file explorer on current file
 		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		keymap.set("n", "<leader>el", "<cmd>NvimTreeResize +20<CR>", { desc = "Increase size" }) -- refresh file explorer
+		keymap.set("n", "<leader>eh", "<cmd>NvimTreeResize -20<CR>", { desc = "Decrease size" }) -- refresh file explorer
 	end,
 }

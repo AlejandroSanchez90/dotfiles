@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 local keymap = vim.keymap
-keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
+keymap.set({ "i", "v" }, "kj", "<ESC>", { desc = "Exit insert/visual mode with kj" })
 keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
