@@ -41,6 +41,7 @@ return {
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
 						["<C-x>"] = trouble_telescope.open,
+						["<C-d>"] = actions.delete_buffer,
 					},
 				},
 			},
