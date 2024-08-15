@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export BUN_INSTALL="$HOME/.bun"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -31,6 +32,12 @@ setopt hist_verify
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+if [ -f ~/.ssh/eog ]; then
+echo Adding myeog github ssh
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/eog
+fi
 
 alias ls="eza --icons=always"
 eval "$(zoxide init zsh)"
