@@ -33,12 +33,6 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-if [ -f ~/.ssh/eog ]; then
-echo Adding myeog github ssh
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/eog
-fi
-
 alias ls="eza --icons=always"
 eval "$(zoxide init zsh)"
 alias cd="z"
