@@ -2,6 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
 	dependencies = {
+		"princejoogie/dir-telescope.nvim",
 		"nvim-lua/plenary.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -49,6 +50,7 @@ return {
 
 		telescope.load_extension("live_grep_args")
 		telescope.load_extension("fzf")
+		telescope.load_extension("dir")
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
@@ -66,5 +68,6 @@ return {
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>", { desc = "Find resume" })
 		keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Find quickfix" })
+		keymap.set("n", "<leader>f;", "<cmd>Telescope dir live_grep <cr>", { desc = "Find string in specific folder" })
 	end,
 }
