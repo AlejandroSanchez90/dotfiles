@@ -13,13 +13,11 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 		keymap.set("n", "<leader>go", "<cmd>Neogit<cr>", { desc = "Open NeoGit" })
+		keymap.set("n", "<leader>gf", "<cmd>Neogit fetch<cr>", { desc = "Fetch" })
+		keymap.set("n", "<leader>gg", "<cmd>Neogit branch<cr>", { desc = "Commit" })
+		keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Push" })
 
-		keymap.set(
-			"n",
-			"<leader>gdl",
-			"<cmd>DiffviewFileHistory % --base=LOCAL<cr>",
-			{ desc = "Open Git diff view on current file locally" }
-		)
+		keymap.set("n", "<leader>gdh", "<cmd>DiffviewFileHistory % --base=LOCAL<cr>", { desc = "File github history" })
 
 		--DiffviewFileHistory % --base=LOCAL
 	end,
