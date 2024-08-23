@@ -18,6 +18,7 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+
 		local transform_mod = require("telescope.actions.mt").transform_mod
 
 		local trouble = require("trouble")
@@ -41,8 +42,8 @@ return {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
-						["<C-x>"] = trouble_telescope.open,
-						["<C-d>"] = actions.delete_buffer,
+						["<C-t>"] = trouble_telescope.open,
+						["<C-x"] = actions.delete_buffer,
 					},
 				},
 			},

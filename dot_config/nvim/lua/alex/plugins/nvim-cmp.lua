@@ -56,6 +56,13 @@ return {
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+				["<C-x>"] = function()
+					if cmp.visible_docs() then
+						cmp.close_docs()
+					else
+						cmp.open_docs()
+					end
+				end,
 				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
