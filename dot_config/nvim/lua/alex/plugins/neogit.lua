@@ -14,7 +14,7 @@ return {
 		local keymap = vim.keymap -- for conciseness
 		keymap.set("n", "<leader>go", "<cmd>Neogit<cr>", { desc = "Open NeoGit" })
 		keymap.set("n", "<leader>gf", "<cmd>Neogit fetch<cr>", { desc = "Fetch" })
-		keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Commit" })
+		keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Branch" })
 		keymap.set("n", "<leader>gg", "<cmd>Neogit commit<cr>", { desc = "Commit" })
 		keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Push" })
 		keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Status" })
