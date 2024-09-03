@@ -97,16 +97,17 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-1 = [1]
-2 = [2,1]
-3 = [3,2,1]
-4 = [3,2,1]
-6 = [3,2,1]
+1 = ['KYY', 1,2,3]
+2 = ['DELL U2415','Built-in Retina Display']
+3 = [3, 'KYY',2,1]
+4 = [3, 'KYY',2,1]
+5 = [3, 'Built-in Retina Display',2 ,1 ]
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 check-further-callbacks = true
 run = ['move-node-to-workspace 1']  # The callback itself
+
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
 check-further-callbacks = true
@@ -125,6 +126,11 @@ run = ['move-node-to-workspace 2']  # The callback itself
 if.app-id = 'com.google.Chrome'
 check-further-callbacks = true
 run = ['move-node-to-workspace 3']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+check-further-callbacks = true
+run = ['layout floating']  # The callback itself
 
 [[on-window-detected]]
 if.app-id = 'com.postmanlabs.mac'
