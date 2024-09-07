@@ -82,13 +82,15 @@ return {
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
+				-- TODO: This is a hack to fix the server_name, but it should be fixed in mason-lspconfig
+				server_name = server_name == "tsserver" and "ts_ls" or server_name
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
 			end,
 
-			["tsserver"] = function()
-				lspconfig["tsserver"].setup({
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"javascriptreact",
