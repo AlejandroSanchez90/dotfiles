@@ -14,6 +14,9 @@ return {
 
 		require("noice").setup({
 			lsp = {
+				progress = {
+					enabled = false,
+				},
 				signature = {
 					enabled = true,
 					auto_open = {
