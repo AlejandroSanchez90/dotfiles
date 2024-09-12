@@ -5,7 +5,6 @@ return {
 		"sindrets/diffview.nvim", -- optional - Diff integration
 
 		-- Only one of these is needed, not both.
-		"nvim-telescope/telescope.nvim", -- optional
 	},
 	config = function()
 		local neogit = require("neogit")
@@ -17,7 +16,7 @@ return {
 		keymap.set("n", "<leader>gb", "<cmd>Neogit branch<cr>", { desc = "Branch" })
 		keymap.set("n", "<leader>gg", "<cmd>Neogit commit<cr>", { desc = "Commit" })
 		keymap.set("n", "<leader>gp", "<cmd>Neogit push<cr>", { desc = "Push" })
-		keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Status" })
+		keymap.set("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "Status" })
 
 		keymap.set("n", "<leader>gdh", "<cmd>DiffviewFileHistory % --base=LOCAL<cr>", { desc = "File github history" })
 
