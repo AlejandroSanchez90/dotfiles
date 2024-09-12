@@ -8,7 +8,14 @@ return {
 		},
 		config = function()
 			local chat = require("CopilotChat")
-			chat.setup({})
+			chat.setup({
+				question_header = " Message",
+				answer_header = " Copilot",
+				error_header = " Error",
+				auto_follow_cursor = false,
+				insert_at_end = true,
+				context = "buffer",
+			})
 
 			local keymap = vim.keymap
 
