@@ -49,5 +49,10 @@ return {
 		keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
 		keymap.set("n", "<leader>fr", "<cmd>FzfLua resume<cr>", { desc = "Find resume" })
 		keymap.set("n", "<leader>fq", "<cmd>FzfLua quickfix<cr>", { desc = "Find quickfix" })
+		keymap.set("n", "<leader>fg", function()
+			require("fzf-lua").grep({
+				raw_cmd = [[git diff --name-only | xargs rg --hidden --column --line-number --no-heading --color=always --with-filename -e '']],
+			})
+		end, { desc = "Grep changed files" })
 	end,
 }
