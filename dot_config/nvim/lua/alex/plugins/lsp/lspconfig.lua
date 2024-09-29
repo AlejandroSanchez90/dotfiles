@@ -100,13 +100,13 @@ return {
 					},
 				})
 			end,
-			["graphql"] = function()
-				-- configure graphql language server
-				lspconfig["graphql"].setup({
-					capabilities = capabilities,
-					filetypes = { "graphql", "gql", "svelte" },
-				})
-			end,
+			-- ["graphql"] = function()
+			-- 	-- configure graphql language server
+			-- 	lspconfig["graphql"].setup({
+			-- 		capabilities = capabilities,
+			-- 		filetypes = { "graphql", "gql", "svelte" },
+			-- 	})
+			-- end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
@@ -129,7 +129,6 @@ return {
 					capabilities = capabilities,
 					settings = {
 						Lua = {
-
 							-- make the language server recognize "vim" global
 							diagnostics = {
 								globals = { "vim" },
