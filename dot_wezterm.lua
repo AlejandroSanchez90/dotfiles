@@ -8,6 +8,21 @@ config.color_scheme = "Catppuccin Mocha"
 config.window_close_confirmation = "NeverPrompt"
 
 config.window_background_opacity = 0.85
+
 config.macos_window_background_blur = 10
+config.win32_system_backdrop = "Acrylic"
+
+config.keys = {
+	{
+		key = "L",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "L",
+		mods = "CMD",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+}
 
 return config
