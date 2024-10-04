@@ -4,6 +4,8 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		"MeanderingProgrammer/render-markdown.nvim",
+		"nvim-tree/nvim-web-devicons",
 		"norcalli/nvim-colorizer.lua",
 		-- "HiPhish/rainbow-delimiters.nvim",
 	},
@@ -22,6 +24,9 @@ return {
 				enable_close_on_slash = false,
 			},
 		})
+
+		require("render-markdown").setup({})
+
 		-- configure treesitter
 		treesitter.setup({ -- enable syntax highlighting
 			ignore_install = {},
