@@ -20,6 +20,7 @@ return {
 			{ "<leader>x", group = "Diagnostics" },
 			{ "<leader>w", group = "Workspace" },
 			{ "<leader>h", group = "Hunks Git" },
+			{ "<leader>o", group = "Operators" },
 		})
 	end,
 	opts = {

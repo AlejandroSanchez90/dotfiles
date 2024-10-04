@@ -12,7 +12,7 @@ return {
 				question_header = " Message",
 				answer_header = " Copilot",
 				error_header = " Error",
-				auto_follow_cursor = true,
+				auto_follow_cursor = false,
 				context = "buffer",
 			})
 
