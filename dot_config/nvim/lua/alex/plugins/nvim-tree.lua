@@ -40,6 +40,11 @@ return {
 			filters = {
 				custom = { ".DS_Store" },
 			},
+			filesystem_watchers = {
+				ignore_dirs = {
+					"node_modules",
+				},
+			},
 			git = {
 				ignore = false,
 			},

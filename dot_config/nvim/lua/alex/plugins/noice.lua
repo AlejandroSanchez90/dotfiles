@@ -7,9 +7,8 @@ return {
 	},
 	config = function()
 		require("notify").setup({
-			timeout = 1000,
+			timeout = 2000,
 			background_colour = "#000000",
-			max_width = 50,
 		})
 
 		require("noice").setup({
