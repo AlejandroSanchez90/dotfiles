@@ -37,9 +37,11 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
-		keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find files in cwd" })
+		keymap.set("n", "<leader>ff", "<cmd>FzfLua files --keep-right<cr>", { desc = "Find files in cwd" })
+		keymap.set("n", "<leader>fdd", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Diagnostic Document" })
+		keymap.set("n", "<leader>fdw", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Diagnostic Workspace" })
 		keymap.set("n", "<leader>fh", "<cmd>FzfLua oldfiles<cr>", { desc = "Find recent files" })
-		keymap.set("n", "<leader>fs", "<cmd>FzfLua live_grep_glob<cr>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>fs", "<cmd>FzfLua live_grep_glob --keep-right<cr>", { desc = "Find string in cwd" })
 		keymap.set(
 			"n",
 			"<leader>fc",
