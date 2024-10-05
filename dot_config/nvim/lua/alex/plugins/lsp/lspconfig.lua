@@ -15,7 +15,6 @@ return {
 				},
 			},
 		},
-		-- { "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
