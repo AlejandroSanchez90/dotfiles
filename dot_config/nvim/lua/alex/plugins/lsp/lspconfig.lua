@@ -89,6 +89,7 @@ return {
 		vim.diagnostic.config({
 			float = { border = "rounded" },
 		})
+
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			-- function(server_name)
@@ -117,9 +118,9 @@ return {
 			-- 		filetypes = { "graphql", "gql", "svelte" },
 			-- 	})
 			-- end,
-			["emmet_ls"] = function()
+			["emmet_language_server"] = function()
 				-- configure emmet language server
-				lspconfig["emmet_ls"].setup({
+				lspconfig["emmet_language_server"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"html",
