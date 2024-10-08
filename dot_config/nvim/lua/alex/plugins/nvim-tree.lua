@@ -3,7 +3,7 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-
+		local api = require("nvim-tree.api")
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
@@ -37,6 +37,11 @@ return {
 					},
 				},
 			},
+			-- Follows active buffer in tree
+			-- update_focused_file = {
+			-- 	enable = true,
+			-- },
+			tab = { sync = { open = true, close = true, ignore = {} } },
 			filters = {
 				custom = { ".DS_Store" },
 			},
@@ -57,7 +62,8 @@ return {
 		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
 		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-		keymap.set("n", "<leader>el", "<cmd>NvimTreeResize +20<CR>", { desc = "Increase size" }) -- refresh file explorer
-		keymap.set("n", "<leader>eh", "<cmd>NvimTreeResize -20<CR>", { desc = "Decrease size" }) -- refresh file explorer
+		keymap.set("n", "<leader>el", "<cmd>NvimTreeResize +20<CR>", { desc = "Increase size" })
+		keymap.set("n", "<leader>eh", "<cmd>NvimTreeResize -20<CR>", { desc = "Decrease size" })
+		keymap.set("n", "<leader>eE", "<cmd>NvimTreeFocus<CR>", { desc = "Focus tree" })
 	end,
 }
