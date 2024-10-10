@@ -5,6 +5,7 @@ return {
 		"sindrets/diffview.nvim", -- optional - Diff integration
 
 		-- Only one of these is needed, not both.
+		"ibhagwan/fzf-lua",
 	},
 	config = function()
 		local neogit = require("neogit")
