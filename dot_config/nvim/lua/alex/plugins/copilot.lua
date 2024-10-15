@@ -1,10 +1,12 @@
 return {
 	{
 		"github/copilot.vim",
+		event = { "BufReadPre", "BufNewFile" },
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
+		keys = { "<leader>gcc" },
 		branch = "canary",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
