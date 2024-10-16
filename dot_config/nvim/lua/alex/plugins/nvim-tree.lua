@@ -19,8 +19,8 @@ return {
 			api.config.mappings.default_on_attach(bufnr)
 
 			-- custom mappings
-			vim.keymap.set("n", "l", "<cmd>NvimTreeResize +20<CR>", opts("Resize +"))
-			vim.keymap.set("n", "h", "<cmd>NvimTreeResize -20<CR>", opts("Resize -"))
+			vim.keymap.set("n", "l", "<cmd>NvimTreeResize +10<CR>", opts("Resize +"))
+			vim.keymap.set("n", "h", "<cmd>NvimTreeResize -10<CR>", opts("Resize -"))
 		end
 
 		nvimtree.setup({
