@@ -1,6 +1,7 @@
 return {
 	"echasnovski/mini.operators",
 	version = "*",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("mini.operators").setup({
 			evaluate = {
