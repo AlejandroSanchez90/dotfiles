@@ -1,7 +1,11 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons",
+	dependencies = { "nvim-tree/nvim-web-devicons", "antosha417/nvim-lsp-file-operations", "nvim-lua/plenary.nvim" },
+	keys = {
+		{ "<leader>e" },
+	},
 	config = function()
+		require("lsp-file-operations").setup()
 		local nvimtree = require("nvim-tree")
 		local api = require("nvim-tree.api")
 		-- recommended settings from nvim-tree documentation
@@ -54,6 +58,7 @@ return {
 					restrict_above_cwd = true,
 				},
 				open_file = {
+					quit_on_open = true,
 					window_picker = {
 						enable = false,
 					},
