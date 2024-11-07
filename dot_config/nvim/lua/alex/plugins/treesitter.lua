@@ -7,6 +7,9 @@ return {
 		"MeanderingProgrammer/render-markdown.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"norcalli/nvim-colorizer.lua",
+		-- for fomatting objects
+		"Wansmer/treesj",
+
 		-- "HiPhish/rainbow-delimiters.nvim",
 	},
 	config = function()
@@ -16,6 +19,17 @@ return {
 		require("colorizer").setup({
 			"*",
 		})
+
+		local treejs = require("treesj")
+
+		treejs.setup({
+			use_default_keymaps = false,
+			max_join_length = 500,
+		})
+
+		vim.keymap.set("n", "<leader>rf", function()
+			require("treesj").toggle({ split = { recursive = true } })
+		end, { desc = "Format object properties into separate lines" })
 
 		require("nvim-ts-autotag").setup({
 			opts = {

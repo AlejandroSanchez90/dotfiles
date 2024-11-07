@@ -9,6 +9,7 @@ return {
 		require("notify").setup({
 			timeout = 2000,
 			background_colour = "#000000",
+			max_width = 50,
 		})
 
 		require("noice").setup({
@@ -20,7 +21,7 @@ return {
 					enabled = true,
 					auto_open = {
 						enabled = true,
-						throttle = 400,
+						throttle = 2000,
 						trigger = true,
 					},
 				},
