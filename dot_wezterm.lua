@@ -8,6 +8,7 @@ config.color_scheme = "Catppuccin Mocha"
 config.window_close_confirmation = "NeverPrompt"
 
 config.window_background_opacity = 0.85
+config.max_fps = 240
 
 config.macos_window_background_blur = 6
 config.win32_system_backdrop = "Acrylic"
