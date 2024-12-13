@@ -7,10 +7,11 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		-- event = "VeryLazy",
 		keys = { "<leader>gcc" },
-		branch = "canary",
 		dependencies = {
-			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
 		},
+
 		config = function()
 			local chat = require("CopilotChat")
 			chat.setup({
