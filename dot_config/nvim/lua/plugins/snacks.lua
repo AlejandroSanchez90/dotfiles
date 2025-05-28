@@ -13,6 +13,8 @@ return {
     picker = {
       enabled = true,
       sources = {
+        files = { hidden = true },
+        grep = { hidden = true },
         git_grep_hunks = {
           supports_live = false,
           format = function(item, picker)
@@ -92,18 +94,7 @@ return {
     {
       '<leader><space>',
       function()
-        require('snacks').picker.smart {
-          sort_lastused = true,
-          multi = { 'buffers', 'recent', 'files' },
-          format = 'file', -- use `file` format for all sources
-          matcher = {
-            cwd_bonus = true, -- boost cwd matches
-            frecency = true, -- use frecency boosting
-            sort_empty = true, -- sort even when the filter is empty
-          },
-          -- sort = { fields = { 'is_cwd', 'idx', 'score:desc', '#text' } },
-          transform = 'unique_file',
-        }
+        require('snacks').picker.smart()
       end,
       desc = 'Smart Find Files',
     },
