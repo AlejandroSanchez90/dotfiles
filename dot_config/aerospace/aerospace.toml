@@ -28,11 +28,16 @@ alt-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-ar
 alt-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up'
 alt-l = 'focus --boundaries all-monitors-outer-frame  --boundaries-action wrap-around-all-monitors right'
 
-alt-b = ['exec-and-forget open -n -a "Google Chrome"', 'mode main']
 alt-p = ['exec-and-forget open -a "Postman"', 'mode main']
 alt-c = ['exec-and-forget open -a "Microsoft Teams"', 'mode main']
 alt-g = ['exec-and-forget open -a "GitHub Desktop"', 'mode main']
 alt-space = ['exec-and-forget open -n  -a "WezTerm"', 'mode main']
+alt-b = '''exec-and-forget osascript -e '
+tell application "Google Chrome"
+    make new window
+    activate
+end tell'
+'''
 
 alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
@@ -51,13 +56,13 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
-alt-shift-3 = ['move-node-to-workspace 3', 'workspace 1']
-alt-shift-4 = ['move-node-to-workspace 4', 'workspace 1']
-alt-shift-5 = ['move-node-to-workspace 5', 'workspace 1']
-alt-shift-6 = ['move-node-to-workspace 6', 'workspace 1']
-alt-shift-7 = ['move-node-to-workspace 7', 'workspace 1']
-alt-shift-8 = ['move-node-to-workspace 8', 'workspace 1']
-alt-shift-9 = ['move-node-to-workspace 9', 'workspace 1']
+alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
@@ -90,67 +95,67 @@ alt-shift-l = ['join-with right', 'mode main']
 5 = [2, 'Built-in Retina Display',2 ,1 ]
 6 = [3, 'Built-in Retina Display',2 ,1 ]
 
-[[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
-check-further-callbacks = true
-run = ['move-node-to-workspace 1']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
-check-further-callbacks = true
-run = ['move-node-to-workspace 1']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-check-further-callbacks = true
-run = ['move-node-to-workspace 2']  # The callback itself
-[[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-check-further-callbacks = true
-run = ['move-node-to-workspace 2']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-check-further-callbacks = true
-run = ['move-node-to-workspace 3']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-check-further-callbacks = true
-run = ['layout floating']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.postmanlabs.mac'
-check-further-callbacks = true
-run = ['move-node-to-workspace 4']  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.github.GitHubClient'
-check-further-callbacks = true
-run = ['move-node-to-workspace 4']  # The callback itself
-
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-check-further-callbacks = true
-run = ['layout floating','move-node-to-workspace 2' ]  # The callback itself
-
-[[on-window-detected]]
-if.app-id = 'com.apple.PhotoBooth'
-check-further-callbacks = true
-run = ['layout floating','move-node-to-workspace 1' ]  # The callback itself
-
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = ['layout floating'] 
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = ['layout floating']  
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = ['layout floating']  
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.teams2'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 1']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.Outlook'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 1']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.github.wez.wezterm'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 2']  # The callback itself
+# [[on-window-detected]]
+# if.app-id = 'com.googlecode.iterm2'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 2']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.google.Chrome'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 3']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.apple.finder'
+# check-further-callbacks = true
+# run = ['layout floating']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.postmanlabs.mac'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 4']  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.github.GitHubClient'
+# check-further-callbacks = true
+# run = ['move-node-to-workspace 4']  # The callback itself
+#
+#
+# [[on-window-detected]]
+# if.app-id = 'net.whatsapp.WhatsApp'
+# check-further-callbacks = true
+# run = ['layout floating','move-node-to-workspace 2' ]  # The callback itself
+#
+# [[on-window-detected]]
+# if.app-id = 'com.apple.PhotoBooth'
+# check-further-callbacks = true
+# run = ['layout floating','move-node-to-workspace 1' ]  # The callback itself
+#
+#
+# [[on-window-detected]]
+# if.app-id = 'md.obsidian'
+# run = ['layout floating'] 
+#
+# [[on-window-detected]]
+# if.app-id = 'com.apple.iCal'
+# run = ['layout floating']  
+#
+# [[on-window-detected]]
+# if.app-id = 'com.apple.Notes'
+# run = ['layout floating']  
 
 
