@@ -15,6 +15,7 @@ set $ws10 "10"
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id indicator-sound-switcher
 exec --no-startup-id xrandr --output HDMI-1-0 --auto --right-of eDP-1
 exec --no-startup-id blueman-applet &
 exec --no-startup-id nm-applet 
