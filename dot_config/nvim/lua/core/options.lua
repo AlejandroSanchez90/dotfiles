@@ -1,8 +1,10 @@
 vim.cmd 'let g:netrw_liststyle = 3'
 local opt = vim.opt
 
+opt.virtualedit = 'block'
 -- Limit windows to 10 items
 opt.pumheight = 10
+opt.winborder = 'single'
 
 opt.relativenumber = true
 opt.number = true
@@ -62,15 +64,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = '*',
   callback = function()
     vim.opt_local.formatoptions:remove { 'r', 'o' }
-  end,
-})
-
--- number column mini.files
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesWindowUpdate',
-  callback = function(args)
-    vim.wo[args.data.win_id].number = true
-    vim.wo[args.data.win_id].relativenumber = true
   end,
 })
 

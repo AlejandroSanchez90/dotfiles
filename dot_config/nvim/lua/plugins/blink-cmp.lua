@@ -4,14 +4,11 @@ return {
     'rafamadriz/friendly-snippets',
     'onsails/lspkind.nvim',
     {
-      'echasnovski/mini.snippets',
+      'L3MON4D3/LuaSnip',
+      version = 'v2.*',
+      -- dependencies = { 'rafamadriz/friendly-snippets' },
       config = function()
-        require('mini.snippets').setup {
-          mappings = {
-            jump_next = '<Tab>',
-            jump_prev = '<S-Tab>',
-          },
-        }
+        require('luasnip.loaders.from_vscode').lazy_load()
       end,
     },
   },
@@ -25,9 +22,9 @@ return {
       ['<C-e>'] = { 'hide', 'fallback' },
       ['<C-y>'] = { 'accept', 'fallback' },
 
-      ['<Tab>'] = {},
-      ['<S-Tab>'] = {},
-
+      ['<Tab>'] = { 'snippet_forward', 'fallback' },
+      -- Navigate to the previous suggestion or cancel completion if currently on the first one.
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
       ['<Up>'] = { 'select_prev', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
@@ -51,46 +48,10 @@ return {
           },
         },
       },
-      -- menu = {
-      --   draw = {
-      --     components = {
-      --       kind_icon = {
-      --         text = function(ctx)
-      --           local icon = ctx.kind_icon
-      --           if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-      --             local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
-      --             if dev_icon then
-      --               icon = dev_icon
-      --             end
-      --           else
-      --             icon = require('lspkind').symbolic(ctx.kind, {
-      --               mode = 'symbol',
-      --             })
-      --           end
-      --
-      --           return icon .. ctx.icon_gap
-      --         end,
-      --         highlight = function(ctx)
-      --           local hl = ctx.kind_hl
-      --           if vim.tbl_contains({ 'Path' }, ctx.source_name) then
-      --             local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
-      --             if dev_icon then
-      --               hl = dev_hl
-      --             end
-      --           end
-      --           return hl
-      --         end,
-      --       },
-      --     },
-      --   },
-      --   border = 'single',
-      -- },
-      -- documentation = { auto_show = true, window = { border = 'single' } },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
         window = {
-          border = 'none',
           max_width = math.floor(vim.o.columns * 0.4),
           max_height = math.floor(vim.o.lines * 0.5),
         },
@@ -102,15 +63,21 @@ return {
       },
     },
 
-    signature = { enabled = true, window = { border = 'single' } },
+    signature = { enabled = true },
 
-    snippets = {
-      expand = function(snippet)
-        require('mini.snippets').default_insert { body = snippet }
-      end,
-    },
+    snippets = { preset = 'luasnip' },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+      providers = {
+        lazydev = {
+          name = 'LazyDev',
+          module = 'lazydev.integrations.blink',
+          score_offset = 100, -- show at a higher priority than lsp
+        },
+        lsp = {
+          fallbacks = { 'buffer', 'path' },
+        },
+      },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },

@@ -1,3 +1,4 @@
+-- Neovim plugin configuration for codecompanion.nvim
 return {
   {
     'github/copilot.vim',
@@ -23,13 +24,11 @@ return {
 
       local keymap = vim.keymap
 
-      keymap.set('n', '<leader>gcc', chat.toggle, { desc = 'Copilot Chat' })
-      keymap.set('n', '<leader>gcd', '<cmd>CopilotChatFixDiagnostic<CR>', { desc = 'Copilot Diagnostics' })
-      keymap.set('n', '<leader>gcf', '<cmd>CopilotChatFix<CR>', { desc = 'Copilot Fix' })
-      keymap.set('n', '<leader>gcm', '<cmd>CopilotChatCommit<CR>', { desc = 'Copilot Commit Message' })
-      keymap.set('n', '<leader>gch', function()
-        chat.ask 'Explain how it works'
-      end, { desc = 'Copilot How it works' })
+      keymap.set({ 'n', 'v' }, '<leader>ac', chat.toggle, { desc = 'copilot chat' })
+      keymap.set({ 'n', 'v' }, '<leader>ar', '<cmd>CopilotChatReset<cr>', { desc = 'copilot reset' })
+      keymap.set({ 'n', 'v' }, '<leader>af', '<cmd>CopilotChatFix<cr>', { desc = 'copilot fix' })
+      keymap.set('n', '<leader>am', '<cmd>CopilotChatCommit<cr>', { desc = 'Copilot commit message' })
+      keymap.set({ 'n', 'v' }, '<leader>ap', '<cmd>CopilotChatPrompts<cr>', { desc = 'Copilot Prompts' })
     end,
   },
 }
