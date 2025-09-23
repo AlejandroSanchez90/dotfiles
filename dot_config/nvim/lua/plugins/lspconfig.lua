@@ -17,11 +17,19 @@ return {
       dependencies = {
 
         { 'mason-org/mason.nvim', opts = {} },
+        {
+          'j-hui/fidget.nvim',
+          opts = {
+            notification = { -- NOTE: you're missing this outer table
+              window = {
+                winblend = 0, -- NOTE: it's winblend, not blend
+              },
+            },
+            -- options
+          },
+        },
         'mason-org/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-        { 'j-hui/fidget.nvim', opts = {} },
-
         'saghen/blink.cmp',
       },
       config = function()
@@ -37,7 +45,7 @@ return {
             map('<leader>d', vim.diagnostic.open_float, 'Show Line Diagnostic')
             map('[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
             map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
-            map('K', vim.lsp.buf.hover, 'Next Diagnostic')
+            map('K', vim.lsp.buf.hover, 'Show hover')
             map('<leader>rs', ':LspRestart<CR>', 'Restart LSP')
 
             map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
@@ -136,7 +144,6 @@ return {
           'marksman',
           'prettier',
           'prisma-language-server',
-          'stylua',
           'tailwindcss-language-server', -- for tailwind we need to install server npm install -g @tailwindcss/language-server
         })
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -146,8 +153,14 @@ return {
           automatic_installation = false,
           handlers = {
             function(server_name)
-              local server = servers[server_name] or {}
+              -- Skip all TypeScript servers since we use typescript-tools.nvim
+              if server_name == 'ts_ls' or 
+                 server_name == 'tsserver' or 
+                 server_name == 'typescript-language-server' then
+                return
+              end
 
+              local server = servers[server_name] or {}
               server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
               require('lspconfig')[server_name].setup(server)
             end,
