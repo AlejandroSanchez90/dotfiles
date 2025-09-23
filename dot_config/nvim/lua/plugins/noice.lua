@@ -6,14 +6,23 @@ return {
     'MunifTanjim/nui.nvim',
   },
   opts = {
+    routes = {
+      {
+        filter = {
+          event = 'notify',
+          find = 'No information available',
+        },
+        opts = { skip = true },
+      },
+    },
     lsp = {
       progress = {
-        enabled = true,
+        enabled = false,
       },
       signature = {
         enabled = false,
         auto_open = {
-          enabled = true,
+          enabled = false,
           throttle = 2000,
           trigger = true,
         },
