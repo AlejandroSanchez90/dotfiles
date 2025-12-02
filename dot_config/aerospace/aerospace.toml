@@ -30,6 +30,7 @@ alt-l = 'focus --boundaries all-monitors-outer-frame  --boundaries-action wrap-a
 
 alt-p = ['exec-and-forget open -a "Postman"', 'mode main']
 alt-c = ['exec-and-forget open -a "Microsoft Teams"', 'mode main']
+alt-m = ['exec-and-forget open -a "Microsoft Outlook"', 'mode main']
 alt-g = ['exec-and-forget open -a "GitHub Desktop"', 'mode main']
 alt-space = ['exec-and-forget open -n  -a "WezTerm"', 'mode main']
 alt-b = '''exec-and-forget osascript -e '
@@ -95,20 +96,21 @@ alt-shift-l = ['join-with right', 'mode main']
 5 = [2, 'Built-in Retina Display',2 ,1 ]
 6 = [3, 'Built-in Retina Display',2 ,1 ]
 
-# [[on-window-detected]]
-# if.app-id = 'com.microsoft.teams2'
-# check-further-callbacks = true
-# run = ['move-node-to-workspace 1']  # The callback itself
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+check-further-callbacks = true
+run = ['move-node-to-workspace 1']  # The callback itself
 #
-# [[on-window-detected]]
-# if.app-id = 'com.microsoft.Outlook'
-# check-further-callbacks = true
-# run = ['move-node-to-workspace 1']  # The callback itself
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+check-further-callbacks = true
+run = ['move-node-to-workspace 1']  # The callback itself
 #
-# [[on-window-detected]]
-# if.app-id = 'com.github.wez.wezterm'
-# check-further-callbacks = true
-# run = ['move-node-to-workspace 2']  # The callback itself
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+check-further-callbacks = true
+run = ['move-node-to-workspace 2']  # The callback itself
+
 # [[on-window-detected]]
 # if.app-id = 'com.googlecode.iterm2'
 # check-further-callbacks = true
@@ -119,10 +121,10 @@ alt-shift-l = ['join-with right', 'mode main']
 # check-further-callbacks = true
 # run = ['move-node-to-workspace 3']  # The callback itself
 #
-# [[on-window-detected]]
-# if.app-id = 'com.apple.finder'
-# check-further-callbacks = true
-# run = ['layout floating']  # The callback itself
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+check-further-callbacks = true
+run = ['layout floating']  # The callback itself
 #
 # [[on-window-detected]]
 # if.app-id = 'com.postmanlabs.mac'
