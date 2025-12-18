@@ -13,6 +13,7 @@ return {
     input = { enabled = true },
     picker = {
       enabled = true,
+      ui_select = true,
       sources = {
         files = { hidden = true },
         grep = { hidden = true },
@@ -94,6 +95,11 @@ return {
     statuscolumn = { enabled = true },
     zen = { enabled = true },
     words = { enabled = true },
+    lazygit = { enabled = true, win = {
+      width = 0,
+      height = 0,
+      border = 'none',
+    } },
   },
   keys = {
     -- {
@@ -199,7 +205,7 @@ return {
       function()
         Snacks.picker.git_grep_hunks()
       end,
-      desc = 'Grep Open Buffers',
+      desc = 'Search git diff',
     },
     {
       '<leader>fs',
@@ -238,6 +244,17 @@ return {
         }
       end,
       desc = 'Goto Definition',
+    },
+    {
+      'gt',
+      function()
+        Snacks.picker.lsp_type_definitions {
+          on_show = function()
+            vim.cmd.stopinsert()
+          end,
+        }
+      end,
+      desc = 'Goto Type Definition',
     },
     {
       'gi',
