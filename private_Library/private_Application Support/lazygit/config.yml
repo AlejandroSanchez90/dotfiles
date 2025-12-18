@@ -1,0 +1,11 @@
+git:
+  pagers:
+    - externalDiffCommand: difft --color=always
+services:
+  'git.eogresources.com': 'github:git.eogresources.com'
+customCommands:
+  - key: 'F'
+    command: 'git pull --rebase origin {{ .SelectedLocalBranch.Name }}'
+    context: 'localBranches'
+    output: log
+    description: 'Pull --rebase'
