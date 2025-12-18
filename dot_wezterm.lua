@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 wezterm.log_error("Version " .. wezterm.version)
-config.font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Medium" })
+config.font = wezterm.font({ family = "JetBrainsMono Nerd Font" })
 config.font_size = 16
 config.window_decorations = "RESIZE"
 config.color_scheme = "Tokyo Night"
