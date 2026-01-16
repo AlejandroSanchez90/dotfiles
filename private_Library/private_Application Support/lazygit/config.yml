@@ -1,5 +1,6 @@
 git:
   pagers:
+    - pager: delta --dark --paging=never
     - externalDiffCommand: difft --color=always
 services:
   'git.eogresources.com': 'github:git.eogresources.com'

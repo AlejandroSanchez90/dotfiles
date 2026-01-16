@@ -1,6 +1,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# ${UserConfigDir}/zsh/.zshrc
 
 export ZSH="$HOME/.oh-my-zsh"
 alias ta='tmux attach'
@@ -16,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 export BUN_INSTALL="$HOME/.bun"
 
 export PATH="/opt/homebrew/opt/llvm/bin:/usr/local/bin:/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:$BUN_INSTALL/bin:$PATH"
+export ZK_NOTEBOOK_DIR="$HOME/notes"
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -34,6 +36,11 @@ setopt hist_verify
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 alias ls="eza --icons=always"
 eval "$(zoxide init --cmd cd zsh)"
