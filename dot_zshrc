@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 alias ta='tmux attach'
 alias tl='tmux list-sessions'
 alias tn='tmux new-session'
+alias prs='git log origin/main..origin/stage --no-merges --pretty=format:"%C(bold blue)%an%C(reset): %C(white)%s%C(reset)%nComment: %C(yellow)%b%C(reset)%n" --reverse'
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(git zsh-autosuggestions fzf-zsh-plugin zsh-syntax-highlighting)

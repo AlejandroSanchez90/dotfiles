@@ -9,7 +9,7 @@ return {
     bigfile = { enabled = true },
     rename = { enabled = true },
     bufdelete = { enabled = true },
-    -- indent = { enabled = true },
+    indent = { enabled = true, animate = { enabled = false }, scope = { underline = true }, chunk = { enabled = true } },
     input = { enabled = true },
     picker = {
       enabled = true,
@@ -93,7 +93,7 @@ return {
     quickfile = { enabled = true },
     scope = { enabled = true },
     statuscolumn = { enabled = true },
-    zen = { enabled = true },
+    -- zen = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true, win = {
       width = 0,
@@ -120,14 +120,14 @@ return {
       end,
       desc = 'LSP Workspace Symbols',
     },
-    {
-
-      '<leader>z',
-      function()
-        Snacks.zen.zen()
-      end,
-      desc = 'Toggle Zen mode',
-    },
+    -- {
+    --
+    --   '<leader>z',
+    --   function()
+    --     Snacks.zen.zen()
+    --   end,
+    --   desc = 'Toggle Zen mode',
+    -- },
     {
       '<leader>bo',
       function()
